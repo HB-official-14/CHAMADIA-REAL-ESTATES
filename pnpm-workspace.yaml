@@ -1,0 +1,11 @@
+allowBuilds:
+  '@prisma/client': true
+  '@prisma/client@file:C:/Users/HAMZAB~1/AppData/Local/Temp/prisma-client.tgz': set this to true or false
+  '@prisma/engines': true
+  esbuild: true
+  prisma: true
+  sharp: true
+  unrs-resolver: true
+ignoredBuiltDependencies:
+  - sharp
+  - unrs-resolver

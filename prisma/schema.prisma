@@ -1,0 +1,174 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Property {
+  id            String        @id @default(cuid())
+  title         String
+  slug          String        @unique
+  description   String        @db.Text
+  price         Float
+  location      String
+  area          Float
+  bedrooms      Int           @default(0)
+  bathrooms     Int           @default(0)
+  propertyType  String
+  status        String        @default("Available")
+  images        String[]
+  amenities     String[]
+  featured      Boolean       @default(false)
+  available     Boolean       @default(true)
+  latitude      Float?
+  longitude     Float?
+  developerId   String
+  developer     Developer     @relation(fields: [developerId], references: [id])
+  projectId     String?
+  project       Project?      @relation(fields: [projectId], references: [id])
+  floorPlans    FloorPlan[]
+  paymentPlans  PaymentPlan[]
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@index([status])
+  @@index([propertyType])
+  @@index([price])
+  @@index([slug])
+}
+
+model FloorPlan {
+  id         String   @id @default(cuid())
+  title      String
+  image      String
+  area       Float
+  bedrooms   Int
+  bathrooms  Int
+  price      Float
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  @@index([propertyId])
+}
+
+model PaymentPlan {
+  id          String   @id @default(cuid())
+  title       String
+  percentage  Float
+  months      Int
+  description String   @db.Text
+  propertyId  String
+  property    Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  @@index([propertyId])
+}
+
+model Project {
+  id             String     @id @default(cuid())
+  title          String
+  slug           String     @unique
+  description    String     @db.Text
+  location       String
+  images         String[]
+  status         String     @default("Ongoing")
+  features       String[]
+  amenities      String[]
+  completionDate DateTime?
+  developerId    String
+  developer      Developer  @relation(fields: [developerId], references: [id])
+  properties     Property[]
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  @@index([slug])
+  @@index([status])
+}
+
+model Developer {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  logo        String
+  description String    @db.Text
+  website     String?
+  projects    Project[]
+  properties  Property[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([slug])
+}
+
+model Lead {
+  id               String   @id @default(cuid())
+  name             String
+  phone            String
+  email            String
+  message          String?  @db.Text
+  budget           Float?
+  interestedProject String?
+  source           String   @default("website")
+  status           String   @default("new")
+  notes            String?  @db.Text
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([email])
+  @@index([phone])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model Appointment {
+  id               String   @id @default(cuid())
+  name             String
+  phone            String
+  email            String
+  preferredDate    DateTime
+  preferredTime    String
+  interestedProject String?
+  notes            String?  @db.Text
+  status           String   @default("pending")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([preferredDate])
+  @@index([status])
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("admin")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+}
+
+model SiteContent {
+  id        String   @id @default(cuid())
+  key       String
+  value     String   @db.Text
+  section   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([key])
+  @@index([section])
+}
+
+model AIMessage {
+  id        String   @id @default(cuid())
+  sessionId String
+  role      String
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+
+  @@index([sessionId])
+}
