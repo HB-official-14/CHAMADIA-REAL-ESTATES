@@ -6,19 +6,20 @@ export interface ProjectData {
   description: string;
   features: string[];
   amenities: string[];
+  possession?: string;
 }
 
 export const projects: ProjectData[] = [
   {
-    name: "AA Residency",
-    slug: "aa-residency",
+    name: "AA Residencia",
+    slug: "aa-residencia",
     location: "Callachi Society, Karachi, Pakistan",
     units: [
       "2 Bed DD \u2014 1130 Sq.Ft",
       "3 Bed DD \u2014 1558 Sq.Ft",
     ],
     description:
-      "AA Residency offers a perfect balance of affordable luxury and modern family living. Designed with spacious layouts and contemporary architecture, it provides comfort, security, and long-term investment value in the heart of Callachi Society, Karachi.",
+      "AA Residencia offers a perfect balance of affordable luxury and modern family living. Designed with spacious layouts and contemporary architecture, it provides comfort, security, and long-term investment value in the heart of Callachi Society, Karachi.",
     features: [
       "Contemporary architectural design",
       "Spacious living areas",

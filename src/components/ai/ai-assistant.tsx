@@ -14,9 +14,39 @@ interface Message {
 const initialMessages: Message[] = [
   {
     role: "assistant",
-    content: "Hi! I'm ChamadiaZ AI, your intelligent assistant from Chamadia Real Estates. I can help you find properties, explain payment plans, answer questions, or book a site visit. How can I help you today?",
+    content: "Hi! I'm Chamadia AI, your intelligent assistant from Chamadia Real Estates. I can help you find properties, explain payment plans, answer questions, or book a site visit. How can I help you today?",
   },
 ];
+
+function ChatMessage({ content }: { content: string }) {
+  const parts = content.split(/(https?:\/\/[^\s]+)/g);
+  return (
+    <span>
+      {parts.map((part, i) => {
+        if (part.startsWith("http")) {
+          const isWa = part.includes("wa.me") || part.includes("whatsapp");
+          return (
+            <a
+              key={i}
+              href={part}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "underline font-medium transition-colors",
+                isWa
+                  ? "text-green-600 hover:text-green-700"
+                  : "text-navy-900 hover:text-gold-600"
+              )}
+            >
+              {isWa ? "Open WhatsApp" : part}
+            </a>
+          );
+        }
+        return <span key={i}>{part}</span>;
+      })}
+    </span>
+  );
+}
 
 export function AIAssistant() {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,7 +89,7 @@ export function AIAssistant() {
     } catch {
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: "ChamadiaZ AI is temporarily unavailable. Please try again or contact us directly at chamadiarealestates@gmail.com." },
+        { role: "assistant", content: "Chamadia AI is temporarily unavailable. Please try again or contact us directly at chamadiarealestates@gmail.com." },
       ]);
     } finally {
       setLoading(false);
@@ -74,7 +104,7 @@ export function AIAssistant() {
           "fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300",
           isOpen ? "bg-red-500 hover:bg-red-600" : "bg-navy-900 hover:bg-navy-800"
         )}
-        aria-label={isOpen ? "Close ChamadiaZ AI" : "Open ChamadiaZ AI"}
+        aria-label={isOpen ? "Close Chamadia AI" : "Open Chamadia AI"}
       >
         {isOpen ? <X className="w-6 h-6 text-white" /> : <Bot className="w-6 h-6 text-gold-500" />}
       </button>
@@ -94,7 +124,7 @@ export function AIAssistant() {
                   <Bot className="w-5 h-5 text-gold-500" />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold">ChamadiaZ AI</h3>
+                  <h3 className="text-white font-semibold">Chamadia AI</h3>
                   <p className="text-white/60 text-xs">Real Estate Expert</p>
                 </div>
               </div>
@@ -129,7 +159,7 @@ export function AIAssistant() {
                         : "bg-navy-900 text-white"
                     )}
                   >
-                    {msg.content}
+                    <ChatMessage content={msg.content} />
                   </div>
                 </div>
               ))}

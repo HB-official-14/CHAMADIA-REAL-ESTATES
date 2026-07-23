@@ -43,16 +43,16 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              {NAV_ITEMS.flatMap((item) =>
+              {NAV_ITEMS.flatMap((item): { label: string; href: string }[] =>
                 item.children
                   ? item.children
                   : item.href
-                    ? [item]
+                    ? [{ label: item.label, href: item.href }]
                     : []
               ).map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href!}
+                    href={link.href}
                     className="text-gray-400 hover:text-gold-500 transition-colors text-sm"
                   >
                     {link.label}

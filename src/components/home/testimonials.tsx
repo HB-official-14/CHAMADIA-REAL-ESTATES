@@ -20,15 +20,15 @@ export function Testimonials() {
           </div>
 
           <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-4">
-            Be Our First Happy Client
+            Trusted Real Estate Services
           </h2>
 
           <p className="text-lg text-gold-500 font-medium mb-8">
-            Your trust is our greatest achievement.
+            Professional Property Guidance & Client Satisfaction
           </p>
 
           <p className="text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10">
-            We&apos;re committed to delivering honest guidance, premium real estate services, and a seamless property buying experience. Book your consultation today and become one of our first valued clients. We look forward to helping you find your perfect property and hearing your valuable feedback.
+            At Chamadia Real Estates, we are committed to providing professional guidance, personalized customer support, and quality service to help you find the right property. Our team ensures a trustworthy real estate experience from start to finish.
           </p>
 
           <Link href="/contact">

@@ -1,11 +1,31 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { ArrowRight, Search } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Search, Building2, MapPin, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
+  const [showExplore, setShowExplore] = useState(false);
+
+  const handleExploreClick = () => {
+    setShowExplore(true);
+  };
+
+  const handleExploreChoice = (section: string) => {
+    setShowExplore(false);
+    if (section === "projects") {
+      document.getElementById("featured-projects")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else if (section === "plots") {
+      document.getElementById("featured-plots")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleAdvancedSearch = () => {
+    window.dispatchEvent(new CustomEvent("focus-search"));
+  };
+
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-navy-50/30">
       {/* Subtle decorative elements */}
@@ -80,6 +100,7 @@ export function HeroSection() {
               <Button
                 variant="primary"
                 size="lg"
+                onClick={handleExploreClick}
                 className="group bg-navy-900 hover:bg-navy-800 text-white shadow-lg shadow-navy-900/20 hover:shadow-xl hover:shadow-navy-900/30 transition-all duration-300 px-8 py-4 text-base"
               >
                 Explore Properties
@@ -88,6 +109,7 @@ export function HeroSection() {
               <Button
                 variant="outline"
                 size="lg"
+                onClick={handleAdvancedSearch}
                 className="border-2 border-navy-900/20 text-navy-900 hover:bg-navy-900 hover:text-white hover:border-navy-900 transition-all duration-300 px-8 py-4 text-base"
               >
                 <Search className="w-5 h-5 mr-2" />
@@ -97,6 +119,68 @@ export function HeroSection() {
           </motion.div>
         </div>
       </div>
+
+      <AnimatePresence>
+        {showExplore && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center"
+          >
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm"
+              onClick={() => setShowExplore(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+              className="relative z-50 w-full max-w-sm mx-4 bg-white rounded-2xl shadow-2xl p-8"
+            >
+              <button
+                onClick={() => setShowExplore(false)}
+                className="absolute top-4 right-4 p-1.5 rounded-lg hover:bg-gray-100 transition-colors"
+                aria-label="Close"
+              >
+                <X className="w-5 h-5 text-gray-400" />
+              </button>
+
+              <h3 className="text-2xl font-bold text-navy-900 text-center mb-2">
+                Explore More
+              </h3>
+              <p className="text-gray-500 text-sm text-center mb-8">
+                Choose what you would like to explore
+              </p>
+
+              <div className="grid grid-cols-2 gap-4">
+                <button
+                  onClick={() => handleExploreChoice("projects")}
+                  className="group flex flex-col items-center gap-3 p-6 rounded-xl bg-gradient-to-br from-navy-900 to-navy-800 text-white hover:from-navy-800 hover:to-navy-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  <Building2 className="w-8 h-8 text-gold-500" />
+                  <span className="font-semibold text-lg">Projects</span>
+                  <span className="text-xs text-white/60">Premium living spaces</span>
+                </button>
+                <button
+                  onClick={() => handleExploreChoice("plots")}
+                  className="group flex flex-col items-center gap-3 p-6 rounded-xl bg-gradient-to-br from-gold-500 to-gold-600 text-navy-900 hover:from-gold-400 hover:to-gold-500 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  <MapPin className="w-8 h-8" />
+                  <span className="font-semibold text-lg">Plots</span>
+                  <span className="text-xs text-navy-900/60">Prime investment land</span>
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

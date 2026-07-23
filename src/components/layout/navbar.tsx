@@ -201,7 +201,7 @@ export function Navbar() {
                   <path d="M9 21h6" />
                   <path d="M12 17v4" />
                 </svg>
-                ChamadiaZ AI
+                Chamadia AI
               </span>
             </button>
             <a
@@ -251,7 +251,7 @@ export function Navbar() {
                   <path d="M9 21h6" />
                   <path d="M12 17v4" />
                 </svg>
-                ChamadiaZ AI
+                Chamadia AI
               </span>
             </button>
             <a

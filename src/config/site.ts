@@ -32,34 +32,31 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  {
-    label: "Properties",
-    children: [
-      { label: "Projects", href: "/projects" },
-      { label: "Plots", href: "/plots" },
-    ],
-  },
+  { label: "Projects", href: "/projects" },
+  { label: "Plots", href: "/plots" },
+  { label: "Sell", href: "/sell" },
+  { label: "Rent", href: "/rent" },
   { label: "Contact", href: "/contact" },
-  { label: "FAQ", href: "/faq" },
 ];
 
 export const PROPERTY_TYPES = [
   "Apartment",
-  "Villa",
-  "House",
-  "Penthouse",
-  "Office",
-  "Shop",
   "Plot",
-  "Farm House",
+  "Villa",
+  "Penthouse",
+  "Duplex",
+  "Commercial",
+  "Shop",
 ] as const;
 
 export const PROPERTY_STATUSES = [
   "Available",
-  "Sold",
-  "Reserved",
-  "Coming Soon",
+] as const;
+
+export const PURPOSE_OPTIONS = [
+  "Buy",
+  "Sell",
+  "Rent",
 ] as const;
 
 export const PROPERTY_SORT_OPTIONS = [
