@@ -423,7 +423,7 @@ export default function RentPage() {
                         />
                       </FormField>
 
-                      <div className="flex gap-3 pt-2">
+                      <div className="flex flex-col sm:flex-row gap-3 pt-2">
                         <Button type="submit" variant="primary" size="lg" className="flex-1">
                           <Send className="w-4 h-4" />
                           Submit Request
@@ -661,7 +661,7 @@ export default function RentPage() {
                               />
                             </FormField>
 
-                            <div className="flex gap-3 pt-2">
+                            <div className="flex flex-col sm:flex-row gap-3 pt-2">
                               <Button type="submit" variant="primary" size="lg" className="flex-1">
                                 <Send className="w-4 h-4" />
                                 Submit Request
@@ -756,7 +756,7 @@ export default function RentPage() {
                               />
                             </FormField>
 
-                            <div className="flex gap-3 pt-2">
+                            <div className="flex flex-col sm:flex-row gap-3 pt-2">
                               <Button type="submit" variant="primary" size="lg" className="flex-1">
                                 <Send className="w-4 h-4" />
                                 Submit Request

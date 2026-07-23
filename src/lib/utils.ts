@@ -45,7 +45,11 @@ export function truncate(text: string, length: number): string {
 }
 
 export function getWhatsAppUrl(phone: string, message?: string): string {
-  const base = `https://wa.me/${phone.replace(/[^0-9]/g, "")}`;
+  let digits = phone.replace(/[^0-9]/g, "");
+  if (digits.startsWith("0")) {
+    digits = "92" + digits.slice(1);
+  }
+  const base = `https://wa.me/${digits}`;
   if (message) return `${base}?text=${encodeURIComponent(message)}`;
   return base;
 }

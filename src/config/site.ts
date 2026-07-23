@@ -36,6 +36,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Plots", href: "/plots" },
   { label: "Sell", href: "/sell" },
   { label: "Rent", href: "/rent" },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 

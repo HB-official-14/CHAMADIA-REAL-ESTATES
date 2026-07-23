@@ -101,12 +101,12 @@ export function AIAssistant() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          "fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300",
+          "fixed bottom-4 md:bottom-6 right-4 md:right-6 z-50 w-12 h-12 md:w-14 md:h-14 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300",
           isOpen ? "bg-red-500 hover:bg-red-600" : "bg-navy-900 hover:bg-navy-800"
         )}
         aria-label={isOpen ? "Close Chamadia AI" : "Open Chamadia AI"}
       >
-        {isOpen ? <X className="w-6 h-6 text-white" /> : <Bot className="w-6 h-6 text-gold-500" />}
+        {isOpen ? <X className="w-5 h-5 md:w-6 md:h-6 text-white" /> : <Bot className="w-5 h-5 md:w-6 md:h-6 text-gold-500" />}
       </button>
 
       <AnimatePresence>
@@ -116,7 +116,7 @@ export function AIAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.9 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-48px)] bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden"
+            className="fixed bottom-16 md:bottom-24 right-0 md:right-6 left-0 md:left-auto z-50 mx-3 md:mx-0 w-auto md:w-[380px] max-h-[85vh] md:max-h-none bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden"
           >
             <div className="bg-navy-900 p-4">
               <div className="flex items-center gap-3">
@@ -130,7 +130,7 @@ export function AIAssistant() {
               </div>
             </div>
 
-            <div className="h-[400px] overflow-y-auto p-4 space-y-4">
+            <div className="h-[350px] md:h-[400px] overflow-y-auto p-4 space-y-4">
               {messages.map((msg, index) => (
                 <div
                   key={index}

@@ -27,7 +27,7 @@ export function PageLayout({ children }: PageLayoutProps) {
   return (
     <>
       <Navbar />
-      <main className="flex-1 pt-20">{children}</main>
+      <main className="flex-1 pt-16 md:pt-20">{children}</main>
       <Footer />
       <ContactPopup isOpen={contactOpen} onClose={() => setContactOpen(false)} />
     </>

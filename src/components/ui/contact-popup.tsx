@@ -2,12 +2,17 @@
 
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Phone } from "lucide-react";
+import { X, Phone, MessageSquare } from "lucide-react";
+import { getWhatsAppUrl } from "@/lib/utils";
 
 interface ContactPopupProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
+const HAMZA = "03000262592";
+const MUSTAFA = "03352266358";
+const DEFAULT_MESSAGE = "Hello Chamadia Real Estates, I would like to inquire about your properties.";
 
 export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
   useEffect(() => {
@@ -70,31 +75,47 @@ export function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
             </div>
 
             <div className="p-6 space-y-3">
-              <a
-                href="tel:03000262592"
-                className="flex items-center gap-4 p-4 rounded-xl border border-gray-200 hover:border-gold-500/50 hover:bg-gold-50/50 transition-all duration-300 group"
-              >
-                <div className="w-12 h-12 bg-navy-900 rounded-full flex items-center justify-center group-hover:bg-gold-500 transition-colors duration-300 flex-shrink-0">
-                  <Phone className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <p className="font-semibold text-navy-900 text-sm">Hamza Chamadia</p>
-                  <p className="text-gray-400 text-xs mt-0.5">Call Now — 03000262592</p>
-                </div>
-              </a>
+              <div className="flex gap-2">
+                <a
+                  href={getWhatsAppUrl(HAMZA, DEFAULT_MESSAGE)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex flex-col items-center gap-1.5 p-3.5 rounded-xl border border-gray-200 hover:border-green-400 hover:bg-green-50/50 transition-all duration-300 group"
+                >
+                  <MessageSquare className="w-5 h-5 text-green-500" />
+                  <span className="text-xs font-semibold text-navy-900">Hamza</span>
+                  <span className="text-[10px] text-gray-400">WhatsApp</span>
+                </a>
+                <a
+                  href={`tel:${HAMZA}`}
+                  className="flex-1 flex flex-col items-center gap-1.5 p-3.5 rounded-xl border border-gray-200 hover:border-gold-500/50 hover:bg-gold-50/50 transition-all duration-300 group"
+                >
+                  <Phone className="w-5 h-5 text-gold-500" />
+                  <span className="text-xs font-semibold text-navy-900">Hamza</span>
+                  <span className="text-[10px] text-gray-400">Call</span>
+                </a>
+              </div>
 
-              <a
-                href="tel:03352266358"
-                className="flex items-center gap-4 p-4 rounded-xl border border-gray-200 hover:border-gold-500/50 hover:bg-gold-50/50 transition-all duration-300 group"
-              >
-                <div className="w-12 h-12 bg-navy-900 rounded-full flex items-center justify-center group-hover:bg-gold-500 transition-colors duration-300 flex-shrink-0">
-                  <Phone className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <p className="font-semibold text-navy-900 text-sm">Mustafa Chamadia</p>
-                  <p className="text-gray-400 text-xs mt-0.5">Call Now — 03352266358</p>
-                </div>
-              </a>
+              <div className="flex gap-2">
+                <a
+                  href={getWhatsAppUrl(MUSTAFA, DEFAULT_MESSAGE)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex flex-col items-center gap-1.5 p-3.5 rounded-xl border border-gray-200 hover:border-green-400 hover:bg-green-50/50 transition-all duration-300 group"
+                >
+                  <MessageSquare className="w-5 h-5 text-green-500" />
+                  <span className="text-xs font-semibold text-navy-900">Mustafa</span>
+                  <span className="text-[10px] text-gray-400">WhatsApp</span>
+                </a>
+                <a
+                  href={`tel:${MUSTAFA}`}
+                  className="flex-1 flex flex-col items-center gap-1.5 p-3.5 rounded-xl border border-gray-200 hover:border-gold-500/50 hover:bg-gold-50/50 transition-all duration-300 group"
+                >
+                  <Phone className="w-5 h-5 text-gold-500" />
+                  <span className="text-xs font-semibold text-navy-900">Mustafa</span>
+                  <span className="text-[10px] text-gray-400">Call</span>
+                </a>
+              </div>
             </div>
 
             <div className="px-6 pb-6">

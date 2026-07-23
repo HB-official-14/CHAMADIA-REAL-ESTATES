@@ -11,8 +11,8 @@ export function Footer() {
 
   return (
     <footer className="bg-navy-900 text-white">
-      <Container className="py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <Container className="py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           <div>
             <Logo variant="footer" className="mb-6" />
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
