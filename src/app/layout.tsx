@@ -18,6 +18,16 @@ export const metadata: Metadata = {
   title: "Chamadia Real Estates | Premium Real Estate Solutions",
   description: "Discover luxury properties and premium real estate investments with Chamadia Real Estates. Expert guidance for your property journey in Pakistan.",
   keywords: "real estate, properties, luxury homes, Pakistan real estate, property investment, Chamadia",
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     title: "Chamadia Real Estates | Premium Real Estate Solutions",
     description: "Discover luxury properties and premium real estate investments with Chamadia Real Estates.",
