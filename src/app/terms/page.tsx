@@ -3,8 +3,16 @@ import { PageLayout } from "@/components/layout/page-layout";
 import { Section } from "@/components/layout/section";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Chamadia Real Estates",
-  description: "Terms and Conditions for using Chamadia Real Estates website and services.",
+  title: "Terms & Conditions",
+  description: "Terms and Conditions for using Chamadia Real Estates website and services. Please read these terms carefully before using our platform.",
+  alternates: {
+    canonical: "https://chamadiarealestates.com/terms",
+  },
+  openGraph: {
+    title: "Terms & Conditions | Chamadia Real Estates",
+    description: "Terms and Conditions for using Chamadia Real Estates website and services.",
+    url: "https://chamadiarealestates.com/terms",
+  },
 };
 
 export default function TermsPage() {

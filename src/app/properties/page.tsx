@@ -7,8 +7,20 @@ import { Button } from "@/components/ui/button";
 import { PROPERTY_TYPES, PROPERTY_STATUSES } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Properties | Chamadia Real Estates",
-  description: "Browse our collection of premium properties for sale across Pakistan.",
+  title: "Properties",
+  description: "Browse our collection of premium properties for sale and rent in Callachi Society, Karachi. Find apartments, villas, and plots at the best prices.",
+  alternates: {
+    canonical: "https://chamadiarealestates.com/properties",
+  },
+  openGraph: {
+    title: "Properties | Chamadia Real Estates",
+    description: "Browse our collection of premium properties for sale across Pakistan.",
+    url: "https://chamadiarealestates.com/properties",
+  },
+  twitter: {
+    title: "Properties | Chamadia Real Estates",
+    description: "Browse our collection of premium properties for sale across Pakistan.",
+  },
 };
 
 export default function PropertiesPage() {

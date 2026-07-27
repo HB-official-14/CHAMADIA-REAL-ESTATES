@@ -7,8 +7,20 @@ import { PlotCardActions } from "@/components/plots/plot-card-actions";
 import { plots } from "@/data/plots";
 
 export const metadata: Metadata = {
-  title: "Plots | Chamadia Real Estates",
-  description: "Premium residential plots at Callachi Society, Karachi.",
+  title: "Plots",
+  description: "Premium residential plots for sale at Callachi Society, Karachi. Build your dream home in a prime residential community with excellent investment potential.",
+  alternates: {
+    canonical: "https://chamadiarealestates.com/plots",
+  },
+  openGraph: {
+    title: "Plots | Chamadia Real Estates",
+    description: "Premium residential plots at Callachi Society, Karachi.",
+    url: "https://chamadiarealestates.com/plots",
+  },
+  twitter: {
+    title: "Plots | Chamadia Real Estates",
+    description: "Premium residential plots at Callachi Society, Karachi.",
+  },
 };
 
 export default function PlotsPage() {

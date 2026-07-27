@@ -13,9 +13,22 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  const title = slug.replace(/-/g, " ");
   return {
-    title: `${slug.replace(/-/g, " ")} | Chamadia Real Estates`,
-    description: "View property details",
+    title: `${title.charAt(0).toUpperCase() + title.slice(1)}`,
+    description: `View details of ${title} in Callachi Society, Karachi. Premium real estate property by Chamadia Real Estates.`,
+    alternates: {
+      canonical: `https://chamadiarealestates.com/properties/${slug}`,
+    },
+    openGraph: {
+      title: `${title.charAt(0).toUpperCase() + title.slice(1)} | Chamadia Real Estates`,
+      description: `View details of ${title} in Callachi Society, Karachi.`,
+      url: `https://chamadiarealestates.com/properties/${slug}`,
+    },
+    twitter: {
+      title: `${title.charAt(0).toUpperCase() + title.slice(1)} | Chamadia Real Estates`,
+      description: `View details of ${title} in Callachi Society, Karachi.`,
+    },
   };
 }
 

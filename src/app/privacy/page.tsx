@@ -3,8 +3,16 @@ import { PageLayout } from "@/components/layout/page-layout";
 import { Section } from "@/components/layout/section";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Chamadia Real Estates",
-  description: "Privacy Policy for Chamadia Real Estates. Learn how we collect, use, and protect your personal information.",
+  title: "Privacy Policy",
+  description: "Privacy Policy for Chamadia Real Estates. Learn how we collect, use, and protect your personal information when using our website and services.",
+  alternates: {
+    canonical: "https://chamadiarealestates.com/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy | Chamadia Real Estates",
+    description: "Privacy Policy for Chamadia Real Estates. Learn how we collect, use, and protect your personal information.",
+    url: "https://chamadiarealestates.com/privacy",
+  },
 };
 
 export default function PrivacyPage() {

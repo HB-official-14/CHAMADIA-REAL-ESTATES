@@ -9,8 +9,20 @@ import { projects } from "@/data/projects";
 import { getProjectCoverImage } from "@/lib/project-images";
 
 export const metadata: Metadata = {
-  title: "Projects | Chamadia Real Estates",
-  description: "Explore our premium real estate projects at Callachi Society, Karachi.",
+  title: "Projects",
+  description: "Explore our premium real estate projects at Callachi Society, Karachi. Discover luxury apartments and modern living spaces by Chamadia Real Estates.",
+  alternates: {
+    canonical: "https://chamadiarealestates.com/projects",
+  },
+  openGraph: {
+    title: "Projects | Chamadia Real Estates",
+    description: "Explore our premium real estate projects at Callachi Society, Karachi.",
+    url: "https://chamadiarealestates.com/projects",
+  },
+  twitter: {
+    title: "Projects | Chamadia Real Estates",
+    description: "Explore our premium real estate projects at Callachi Society, Karachi.",
+  },
 };
 
 export default function ProjectsPage() {

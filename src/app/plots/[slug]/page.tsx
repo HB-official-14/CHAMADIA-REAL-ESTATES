@@ -21,8 +21,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const plot = getPlotBySlug(slug);
   if (!plot) return { title: "Plot Not Found" };
   return {
-    title: `${plot.title} | Chamadia Real Estates`,
+    title: plot.title,
     description: plot.description,
+    alternates: {
+      canonical: `https://chamadiarealestates.com/plots/${slug}`,
+    },
+    openGraph: {
+      title: `${plot.title} | Chamadia Real Estates`,
+      description: plot.description,
+      url: `https://chamadiarealestates.com/plots/${slug}`,
+    },
+    twitter: {
+      title: `${plot.title} | Chamadia Real Estates`,
+      description: plot.description,
+    },
   };
 }
 

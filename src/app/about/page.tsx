@@ -4,8 +4,20 @@ import { PageLayout } from "@/components/layout/page-layout";
 import { Section, SectionHeader } from "@/components/layout/section";
 
 export const metadata: Metadata = {
-  title: "About Us | Chamadia Real Estates",
-  description: "Learn about Chamadia Real Estates - our mission, vision, and team of expert real estate professionals.",
+  title: "About Us",
+  description: "Learn about Chamadia Real Estates - our mission, vision, and team of expert real estate professionals. Premium real estate services in Callachi Society, Karachi.",
+  alternates: {
+    canonical: "https://chamadiarealestates.com/about",
+  },
+  openGraph: {
+    title: "About Us | Chamadia Real Estates",
+    description: "Learn about Chamadia Real Estates - our mission, vision, and team of expert real estate professionals.",
+    url: "https://chamadiarealestates.com/about",
+  },
+  twitter: {
+    title: "About Us | Chamadia Real Estates",
+    description: "Learn about Chamadia Real Estates - our mission, vision, and team of expert real estate professionals.",
+  },
 };
 
 const features = [

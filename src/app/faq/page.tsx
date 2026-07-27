@@ -3,8 +3,20 @@ import { PageLayout } from "@/components/layout/page-layout";
 import { Section, SectionHeader } from "@/components/layout/section";
 
 export const metadata: Metadata = {
-  title: "FAQ | Chamadia Real Estates",
-  description: "Frequently asked questions about Chamadia Real Estates services, properties, and investment process.",
+  title: "FAQ",
+  description: "Frequently asked questions about Chamadia Real Estates services, property buying process, payment plans, and investment opportunities in Callachi Society, Karachi.",
+  alternates: {
+    canonical: "https://chamadiarealestates.com/faq",
+  },
+  openGraph: {
+    title: "FAQ | Chamadia Real Estates",
+    description: "Frequently asked questions about Chamadia Real Estates services, properties, and investment process.",
+    url: "https://chamadiarealestates.com/faq",
+  },
+  twitter: {
+    title: "FAQ | Chamadia Real Estates",
+    description: "Frequently asked questions about Chamadia Real Estates services, properties, and investment process.",
+  },
 };
 
 const faqCategories = [

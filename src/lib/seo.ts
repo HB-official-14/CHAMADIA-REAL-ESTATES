@@ -46,7 +46,7 @@ export function generateMetadata({
 }
 
 export function generateStructuredData(type: string, data: Record<string, unknown>) {
-  const base = {
+  const base: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": type,
   };
@@ -81,20 +81,64 @@ export function propertyStructuredData(property: {
 }
 
 export function organizationStructuredData() {
-  return generateStructuredData("Organization", {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.url,
     logo: `${siteConfig.url}/images/logo.png`,
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: siteConfig.phone,
-      contactType: "sales",
-      email: siteConfig.email,
-    },
+    description: siteConfig.description,
+    email: siteConfig.email,
+    telephone: siteConfig.phone,
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address,
       addressCountry: "PK",
     },
-  });
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: siteConfig.phone,
+        contactType: "sales",
+        email: siteConfig.email,
+        availableLanguage: "English",
+      },
+    ],
+    sameAs: [
+      siteConfig.social.instagram,
+      siteConfig.social.facebook,
+      siteConfig.social.youtube,
+    ],
+  };
+}
+
+export function websiteStructuredData() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    description: siteConfig.description,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${siteConfig.url}/properties?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+}
+
+export function breadcrumbStructuredData(items: { name: string; url: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
 }

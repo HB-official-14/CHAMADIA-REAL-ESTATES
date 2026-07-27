@@ -22,8 +22,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = getProjectBySlug(slug);
   if (!project) return { title: "Project Not Found" };
   return {
-    title: `${project.name} | Chamadia Real Estates`,
+    title: project.name,
     description: project.description,
+    alternates: {
+      canonical: `https://chamadiarealestates.com/projects/${slug}`,
+    },
+    openGraph: {
+      title: `${project.name} | Chamadia Real Estates`,
+      description: project.description,
+      url: `https://chamadiarealestates.com/projects/${slug}`,
+    },
+    twitter: {
+      title: `${project.name} | Chamadia Real Estates`,
+      description: project.description,
+    },
   };
 }
 

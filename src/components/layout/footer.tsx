@@ -75,11 +75,11 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-6">Services</h3>
             <ul className="space-y-3">
-              <li><span className="text-gray-400 text-sm">Property Sales</span></li>
-              <li><span className="text-gray-400 text-sm">Property Rentals</span></li>
-              <li><span className="text-gray-400 text-sm">Investment Advisory</span></li>
-              <li><span className="text-gray-400 text-sm">Property Management</span></li>
-              <li><span className="text-gray-400 text-sm">Consultation</span></li>
+              <li><Link href="/properties" className="text-gray-400 hover:text-gold-500 transition-colors text-sm">Property Sales</Link></li>
+              <li><Link href="/rent" className="text-gray-400 hover:text-gold-500 transition-colors text-sm">Property Rentals</Link></li>
+              <li><Link href="/contact" className="text-gray-400 hover:text-gold-500 transition-colors text-sm">Investment Advisory</Link></li>
+              <li><Link href="/sell" className="text-gray-400 hover:text-gold-500 transition-colors text-sm">Property Management</Link></li>
+              <li><Link href="/contact" className="text-gray-400 hover:text-gold-500 transition-colors text-sm">Consultation</Link></li>
             </ul>
           </div>
 
