@@ -133,7 +133,7 @@ Answer these common questions using the data:
 - Use proper formatting for readability`;
 
 const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
-const GROQ_MODEL = "llama-3.3-70b-versatile";
+const GROQ_MODEL = "qwen/qwen3.8-27b";
 
 export async function POST(request: Request) {
   try {
