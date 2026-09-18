@@ -7,14 +7,15 @@ import { openContactPopup } from "@/components/layout/page-layout";
 
 interface ProjectCardActionsProps {
   slug: string;
+  label?: string;
 }
 
-export function ProjectCardActions({ slug }: ProjectCardActionsProps) {
+export function ProjectCardActions({ slug, label = "View Information" }: ProjectCardActionsProps) {
   return (
     <div className="flex gap-3 pt-4 border-t border-gray-100">
       <Link href={`/projects/${slug}`} className="flex-1">
         <Button variant="outline" size="sm" className="w-full group">
-          View Information
+          {label}
           <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
         </Button>
       </Link>

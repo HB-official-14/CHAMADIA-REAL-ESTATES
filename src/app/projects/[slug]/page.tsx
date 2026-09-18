@@ -39,14 +39,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function parseUnitBedrooms(unit: string): string | null {
-  const match = unit.match(/(\d+)\s*Bed/);
-  return match ? `${match[1]} Bedroom` : null;
-}
-
-function parseUnitSize(unit: string): string | null {
-  const match = unit.match(/([\d,]+)\s*Sq\.?Ft/i);
-  return match ? `${match[1]} Sq.Ft` : null;
+function parseUnit(unit: string): { label: string; size: string | null } {
+  const bedMatch = unit.match(/(\d+)\s*Bed([^—,–-]*)/i);
+  const sizeMatch = unit.match(/([\d,]+)\s*Sq\.?Ft/i);
+  const beds = bedMatch ? `${bedMatch[1]} Bedroom` : null;
+  const suffix = bedMatch && bedMatch[2].trim() ? bedMatch[2].trim() : null;
+  const label = beds ? (suffix ? `${beds} ${suffix}` : beds) : unit;
+  return {
+    label,
+    size: sizeMatch ? `${sizeMatch[1]} Sq.Ft` : null,
+  };
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
@@ -70,6 +72,12 @@ export default async function ProjectDetailPage({ params }: Props) {
             <MapPin className="w-5 h-5 text-gold-500" />
             {project.location}
           </p>
+          {project.status && (
+            <span className="inline-flex items-center gap-2 mt-5 rounded-full bg-emerald-500/20 border border-emerald-400/40 px-4 py-1.5 text-sm font-semibold text-emerald-300">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              {project.status}
+            </span>
+          )}
         </div>
       </Section>
 
@@ -90,14 +98,13 @@ export default async function ProjectDetailPage({ params }: Props) {
               <h2 className="text-2xl font-bold text-navy-900 mb-6">Available Apartment Types</h2>
               <div className="space-y-3">
                 {project.units.map((unit) => {
-                  const bedrooms = parseUnitBedrooms(unit);
-                  const size = parseUnitSize(unit);
+                  const { label, size } = parseUnit(unit);
                   return (
                     <div key={unit} className="flex items-start gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
                       <Check className="w-5 h-5 text-gold-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-medium text-navy-900">
-                          {bedrooms || unit}
+                          {label}
                         </p>
                         {size && (
                           <p className="text-gray-500 text-sm mt-0.5">Available Size: {size}</p>

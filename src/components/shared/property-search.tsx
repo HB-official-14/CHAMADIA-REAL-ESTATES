@@ -235,7 +235,8 @@ export function PropertySearch({
                     src={selectedLocation.image}
                     alt={selectedLocation.name}
                     fill
-                    className="object-cover object-center"
+                    className="object-cover"
+                    style={{ objectPosition: selectedLocation.objectPosition ?? "center center" }}
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/30 to-transparent" />

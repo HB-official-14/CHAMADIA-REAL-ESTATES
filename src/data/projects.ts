@@ -10,6 +10,7 @@ export interface ProjectData {
   features: string[];
   amenities: string[];
   possession?: string;
+  status?: string;
 }
 
 export const projects: ProjectData[] = [
@@ -312,10 +313,24 @@ export const projects: ProjectData[] = [
     slug: "aa-beach-front",
     locationKey: "hmr-waterfront",
     location: "HMR Waterfront, Karachi, Pakistan",
-    units: [],
+    units: [
+      "1 Bed DD",
+      "2 Bed DD",
+      "3 Bed DD",
+      "3 Bed Duplex",
+      "4 Bed Duplex",
+    ],
+    status: "Booking Open",
     description:
-      "AA Beach Front is a premium residential development presented by Chamadia Real Estates at HMR Waterfront, Karachi. A distinguished waterfront address — contact our team for the latest availability and unit details.",
-    features: [],
+      "AA Beach Front is a premium residential development at HMR Waterfront, Karachi, with the sea right beside the development. Beautiful sea views, modern living spaces, lifestyle amenities, and a private swimming pool with each apartment make it a distinguished waterfront address.",
+    features: [
+      "Waterfront location with the sea beside the development",
+      "Beautiful sea views",
+      "Modern living spaces",
+      "Lifestyle amenities",
+      "Private swimming pool with each apartment",
+      "Premium community experience",
+    ],
     amenities: [],
   },
   {
@@ -325,8 +340,15 @@ export const projects: ProjectData[] = [
     location: "HMR Waterfront, Karachi, Pakistan",
     units: [],
     description:
-      "AA Waterfront is a premium residential development presented by Chamadia Real Estates at HMR Waterfront, Karachi. Seek the finest in waterfront living — contact our team for the latest availability and unit details.",
-    features: [],
+      "AA Waterfront is a premium residential development at HMR Waterfront, Karachi, offering beautiful sea views, modern residential living, lifestyle amenities, and a beautiful community environment. A distinguished waterfront lifestyle presented by Chamadia Real Estates.",
+    features: [
+      "Waterfront lifestyle",
+      "Beautiful sea views",
+      "Modern residential living",
+      "Lifestyle amenities",
+      "Beautiful community environment",
+      "Premium living experience",
+    ],
     amenities: [],
   },
 ];
