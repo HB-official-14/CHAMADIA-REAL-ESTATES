@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { projects } from "@/data/projects";
 
 const PROJECTS_DIR = path.join(process.cwd(), "public", "projects");
 
@@ -75,4 +76,12 @@ export function getProjectImages(projectName: string): string[] {
 export function getProjectCoverImage(projectName: string): string | null {
   const images = getProjectImages(projectName);
   return images.length > 0 ? images[0] : null;
+}
+
+export function getProjectCoverImages(): Record<string, string | null> {
+  const images: Record<string, string | null> = {};
+  for (const project of projects) {
+    images[project.name] = getProjectCoverImage(project.name);
+  }
+  return images;
 }

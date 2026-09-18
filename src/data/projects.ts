@@ -1,6 +1,9 @@
+import type { LocationKey } from "./locations";
+
 export interface ProjectData {
   name: string;
   slug: string;
+  locationKey: LocationKey;
   location: string;
   units: string[];
   description: string;
@@ -14,6 +17,7 @@ export const projects: ProjectData[] = [
     name: "AA Residencia",
     slug: "aa-residencia",
     location: "Callachi Society, Karachi, Pakistan",
+    locationKey: "callachi-cooperative-housing-society",
     units: [
       "2 Bed DD \u2014 1130 Sq.Ft",
       "3 Bed DD \u2014 1558 Sq.Ft",
@@ -41,6 +45,7 @@ export const projects: ProjectData[] = [
     name: "AA Beverly",
     slug: "aa-beverly",
     location: "Callachi Society, Karachi, Pakistan",
+    locationKey: "callachi-cooperative-housing-society",
     units: [
       "3 Bed DD \u2014 1900 Sq.Ft",
       "4 Bed DD \u2014 2200 Sq.Ft",
@@ -68,6 +73,7 @@ export const projects: ProjectData[] = [
     name: "AA Enclave",
     slug: "aa-enclave",
     location: "Callachi Society, Karachi, Pakistan",
+    locationKey: "callachi-cooperative-housing-society",
     units: [
       "3 Bed DD \u2014 1560 Sq.Ft",
       "4 Bed DD \u2014 1900 Sq.Ft",
@@ -95,6 +101,7 @@ export const projects: ProjectData[] = [
     name: "AA Boulevard",
     slug: "aa-boulevard",
     location: "Callachi Society, Karachi, Pakistan",
+    locationKey: "callachi-cooperative-housing-society",
     units: [
       "3 Bed DD \u2014 1800 Sq.Ft",
       "4 Bed DD \u2014 2100 Sq.Ft",
@@ -122,6 +129,7 @@ export const projects: ProjectData[] = [
     name: "The Court Heights",
     slug: "the-court-heights",
     location: "Callachi Society, Karachi, Pakistan",
+    locationKey: "callachi-cooperative-housing-society",
     units: [
       "2 Bed DD \u2014 956 Sq.Ft",
       "2 Bed DD \u2014 1170 Sq.Ft",
@@ -154,6 +162,7 @@ export const projects: ProjectData[] = [
     name: "Shayan Iconic Palace",
     slug: "shayan-iconic-palace",
     location: "Callachi Society, Karachi, Pakistan",
+    locationKey: "callachi-cooperative-housing-society",
     units: [
       "2 Bed DD \u2014 1232 Sq.Ft",
       "3 Bed DD \u2014 1665 Sq.Ft",
@@ -182,6 +191,7 @@ export const projects: ProjectData[] = [
     name: "Titan One",
     slug: "titan-one",
     location: "Callachi Society, Karachi, Pakistan",
+    locationKey: "callachi-cooperative-housing-society",
     units: [
       "2 Bed DD \u2014 1132 Sq.Ft",
       "3 Bed DD \u2014 1502 Sq.Ft",
@@ -214,6 +224,7 @@ export const projects: ProjectData[] = [
     name: "Centric Tower",
     slug: "centric-tower",
     location: "Callachi Society, Karachi, Pakistan",
+    locationKey: "callachi-cooperative-housing-society",
     units: [
       "2 Bed DD \u2014 1300 Sq.Ft",
       "3 Bed DD \u2014 1772 Sq.Ft",
@@ -241,6 +252,7 @@ export const projects: ProjectData[] = [
     name: "Centric Elite",
     slug: "centric-elite",
     location: "Callachi Society, Karachi, Pakistan",
+    locationKey: "callachi-cooperative-housing-society",
     units: [
       "3 Bed DD \u2014 1900 Sq.Ft",
       "4 Bed DD \u2014 2410 Sq.Ft",
@@ -270,6 +282,7 @@ export const projects: ProjectData[] = [
     name: "Victoria Residency",
     slug: "victoria-residency",
     location: "Callachi Society, Karachi, Pakistan",
+    locationKey: "callachi-cooperative-housing-society",
     units: [
       "2 Bed DD \u2014 1250 Sq.Ft",
       "3 Bed DD \u2014 1650 Sq.Ft",
@@ -293,6 +306,28 @@ export const projects: ProjectData[] = [
       "Security system",
       "Guest parking",
     ],
+  },
+  {
+    name: "AA Beach Front",
+    slug: "aa-beach-front",
+    locationKey: "hmr-waterfront",
+    location: "HMR Waterfront, Karachi, Pakistan",
+    units: [],
+    description:
+      "AA Beach Front is a premium residential development presented by Chamadia Real Estates at HMR Waterfront, Karachi. A distinguished waterfront address — contact our team for the latest availability and unit details.",
+    features: [],
+    amenities: [],
+  },
+  {
+    name: "AA Waterfront",
+    slug: "aa-waterfront",
+    locationKey: "hmr-waterfront",
+    location: "HMR Waterfront, Karachi, Pakistan",
+    units: [],
+    description:
+      "AA Waterfront is a premium residential development presented by Chamadia Real Estates at HMR Waterfront, Karachi. Seek the finest in waterfront living — contact our team for the latest availability and unit details.",
+    features: [],
+    amenities: [],
   },
 ];
 

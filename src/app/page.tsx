@@ -11,7 +11,7 @@ import { Testimonials } from "@/components/home/testimonials";
 import { Leadership } from "@/components/home/leadership";
 import { HomeFAQ } from "@/components/home/home-faq";
 import { HomeContact } from "@/components/home/contact-section";
-import { getProjectCoverImage } from "@/lib/project-images";
+import { getProjectCoverImages } from "@/lib/project-images";
 import { breadcrumbStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -31,10 +31,12 @@ export const metadata: Metadata = {
   },
 };
 
+const allProjectImages = getProjectCoverImages();
+
 const featuredProjectImages: Record<string, string | null> = {
-  "AA Beverly": getProjectCoverImage("AA Beverly"),
-  "The Court Heights": getProjectCoverImage("The Court Heights"),
-  "Centric Elite": getProjectCoverImage("Centric Elite"),
+  "AA Beverly": allProjectImages["AA Beverly"] ?? null,
+  "The Court Heights": allProjectImages["The Court Heights"] ?? null,
+  "Centric Elite": allProjectImages["Centric Elite"] ?? null,
 };
 
 const homeBreadcrumb = breadcrumbStructuredData([
@@ -49,7 +51,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: homeBreadcrumb }}
       />
       <HeroSection />
-      <SearchSection />
+      <SearchSection projectImages={allProjectImages} />
       <FeaturedProjects projectImages={featuredProjectImages} />
       <WhyChooseUs />
       <InvestmentBenefits />
